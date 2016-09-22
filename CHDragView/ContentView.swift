@@ -24,7 +24,7 @@ class ContentView: UIView {
     
     lazy private var icon : UIImageView = {
         let icon = UIImageView()
-        icon.backgroundColor = UIColor.grayColor()
+        icon.backgroundColor = UIColor.lightGrayColor()
         icon.layer.cornerRadius = iconSize.width/2
         icon.layer.masksToBounds = true
         return icon
@@ -41,7 +41,7 @@ class ContentView: UIView {
     }()
     lazy var title:UILabel = {
         let btn = UILabel()
-        btn.textColor = UIColor.grayColor()
+        btn.textColor = UIColor.whiteColor()
         btn.font = UIFont.systemFontOfSize(18)
         btn.text = "MUSEPUB 唱歌聊天"
         btn.textAlignment = .Center
@@ -49,7 +49,7 @@ class ContentView: UIView {
     }()
     lazy var content:UILabel = {
         let btn = UILabel()
-        btn.textColor = UIColor.grayColor()
+        btn.textColor = UIColor.whiteColor()
         btn.font = UIFont.systemFontOfSize(18)
         btn.text = "7月23日 20:00"
         btn.textAlignment = .Center
@@ -57,7 +57,7 @@ class ContentView: UIView {
     }()
     lazy var price:UILabel = {
         let btn = UILabel()
-        btn.textColor = UIColor.grayColor()
+        btn.textColor = UIColor.whiteColor()
         btn.font = UIFont.systemFontOfSize(18)
         btn.textAlignment = .Center
         btn.text = "外滩源\n北京东路99号"

@@ -7,6 +7,10 @@
 //
 
 import UIKit
+let kBoundaryRatio:Float = 0.5
+let kFirstCardScale:Float  = 1.48
+let kSecondCardScale:Float = 0.52
+
 public enum CHDragViewDerection :Int {
     case Default
     case Left
@@ -28,10 +32,6 @@ public struct DragPostion {
         originalFrame = frame
     }
 }
-
-let kBoundaryRatio:Float = 0.5
-let kFirstCardScale:Float  = 1.48
-let kSecondCardScale:Float = 0.52
 public class CHDragView: UIView {
     private var isMoving :Bool = false
     private var datas:[AnyObject]!
@@ -52,7 +52,9 @@ public class CHDragView: UIView {
         default:break
         }
     }
-
+    public func refresh(){
+        showNextPage()
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -133,18 +135,6 @@ public class CHDragView: UIView {
             
             
         }
-        //        背景放大动画
-        //        let offset = fabs(widthOffset) >= kBoundaryRatio ? kBoundaryRatio : fabs(widthOffset);
-        //
-        //        let sPoor = kFirstCardScale - kSecondCardScale
-        //        let tPoor = sPoor / (kBoundaryRatio / offset)
-        //        let yPoor =  (kBoundaryRatio / offset)
-        //
-        //        let scale = CGAffineTransformScale(CGAffineTransformIdentity, CGFloat(tPoor  + kSecondCardScale) , CGFloat(tPoor + kSecondCardScale));
-        //        let translate = CGAffineTransformTranslate(scale, 0, CGFloat(-yPoor));
-//        if   contentView != nil{
-//            contentView!.transform = translate
-//        }
 
     }
     func finshPanGesture(content:UIView,scale:CGFloat,disappear:Bool) {

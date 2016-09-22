@@ -16,10 +16,19 @@ class ViewController: UIViewController,CHDragViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         content.frame = dragView.bounds
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.blackColor()
         dragView.delegate = self
         view.addSubview(dragView)
+        insertBackgroundImage()
 
+    }
+    //设置背景色
+    func insertBackgroundImage() {
+        let image:UIImage = (UIImage.init(named: "basemap_inside") ?? nil)!
+        self.view.layer.contents = image.CGImage
+        self.view.layer.contentsGravity = kCAGravityCenter;
+        //set the contentsScale to match image
+        self.view.layer.contentsScale = image.scale;
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
