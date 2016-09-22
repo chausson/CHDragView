@@ -14,4 +14,5 @@
         return content
     }
 ```
+该协议方法返回一个UIView作为载体，CHDragView包装一个container作为这个载体的容器，进行显示，所有业务逻辑可以在这个协议中自定义。
 
