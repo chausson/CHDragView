@@ -39,11 +39,12 @@ public class CHDragView: UIView {
     private var postionInfo:DragPostion!
     private var contentView:UIView?
     public  var radious :CGFloat!
+    public  var disapperDuring:Double = 0.3
     public  var direction :CHDragViewDerection!
     public  var delegate:CHDragViewProtocol?
-
-    public func loadData(data:AnyObject){
-        
+    //刷新
+    public func reload() {
+        showNextPage()
     }
     public func dragView(direction:CHDragViewDerection){
         switch direction{
@@ -150,7 +151,7 @@ public class CHDragView: UIView {
             }
             let flag =  CGFloat(direction == .Some(.Left) ? -1 :2)
             let width = UIScreen.mainScreen().bounds.size.width
-            UIView.animateWithDuration(0.5, delay: 0.0, options: [.CurveLinear, .AllowUserInteraction], animations: {
+            UIView.animateWithDuration(disapperDuring, delay: 0.0, options: [.CurveLinear, .AllowUserInteraction], animations: {
                 content.center = CGPointMake(width*flag, width * flag / scale + self.postionInfo.originalCenter.y)
                 self.alpha = 0
                 }, completion: { finished in
@@ -161,7 +162,7 @@ public class CHDragView: UIView {
     }
     func resetContentView()  {
 
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0, options:[ .CurveEaseInOut,.AllowUserInteraction], animations: {
+        UIView.animateWithDuration(disapperDuring, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0, options:[ .CurveEaseInOut,.AllowUserInteraction], animations: {
             self.alpha = 1
             self.transform = CGAffineTransformRotate(self.postionInfo.originalTransform, 0)
             self.frame = self.postionInfo.originalFrame
